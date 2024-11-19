@@ -21,12 +21,15 @@ const getUserData = async (req, res) => {
       size: "A3",
       margins: { top: 50, bottom: 50, left: 40, right: 40 },
     });
+     // Set the PDF headers to prompt the user for download
+     res.setHeader("Content-Type", "application/pdf");
+     res.setHeader("Content-Disposition", `attachment; filename=user_${user.name}.pdf`);
     // console.log("Margins:", doc.page.margins);
     // console.log("Page Height:", doc.page.height);
     const pageColor = "#f5f5f5";
 
-    const filePath = path.resolve(__dirname, "user.pdf");
-    const stream = fs.createWriteStream(filePath);
+    // const filePath = path.resolve(__dirname, "user.pdf");
+    // const stream = fs.createWriteStream(filePath);
 
     doc.info.Title = "Object to PDF Example";
     doc.rect(0, 0, doc.page.width, doc.page.height).fillColor(pageColor).fill();
@@ -487,7 +490,7 @@ const getUserData = async (req, res) => {
       .font("Helvetica")
       .text(user.name, {});
 
-    doc.pipe(stream);
+    doc.pipe(res);
 
     // Finalize the PDF document
     doc.end();
