@@ -23,7 +23,7 @@ const getUserData = async (req, res) => {
     });
      // Set the PDF headers to prompt the user for download
      res.setHeader("Content-Type", "application/pdf");
-     res.setHeader("Content-Disposition", `attachment; filename=user_${user.name}.pdf`);
+     res.setHeader("Content-Disposition", `inline; filename=user_${user.name}.pdf`);
     // console.log("Margins:", doc.page.margins);
     // console.log("Page Height:", doc.page.height);
     const pageColor = "#f5f5f5";
