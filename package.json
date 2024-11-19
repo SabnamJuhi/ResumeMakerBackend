@@ -1,0 +1,19 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "build": "npm i"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "blob-stream": "^0.1.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^6.2.11",
+    "path": "^0.12.7",
+    "pdfkit": "^0.13.0"
+  }
+}
