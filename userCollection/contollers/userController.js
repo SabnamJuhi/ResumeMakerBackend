@@ -497,7 +497,7 @@ const getUserData = async (req, res) => {
 
     console.log("PDF saved successfully");
 
-    res.status(200).sendFile(filePath);
+    // res.status(200).sendFile(filePath);
   } catch (error) {
     console.error(error);
     res.status(500).send("Error generating PDF");
